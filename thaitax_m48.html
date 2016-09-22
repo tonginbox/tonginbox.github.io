@@ -16,163 +16,163 @@
 </head>
 <body>
 <div class="container">
-<div class="row">
 <form id="form" class="form-horizontal">
 <div class="form-group">
-<label class="control-label col-md-2"> การได้มาของทรัพย์ </label>
-<div class="col-md-6">
+<div class="row">
+<label class="control-label col-md-2 col-sm-4"> การได้มาของทรัพย์ </label>
+<div class="col-md-6 col-sm-4">
 <input type="radio" name="asset" value="opt1" checked class="form-check">ได้รับมรดก
 <input type="radio" name="asset" value="opt2" class="form-check">รับให้
 <input type="radio" name="asset" value="opt3" class="form-check">ได้มาโดยทางอื่น
 </div>
 </div>
-
 <div class="form-group">
-<label class="control-label col-md-2"> จำนวนปีที่ถือครอง </label>
-<div class="col-md-6">
+<label class="control-label col-md-2 col-sm-4"> จำนวนปีที่ถือครอง </label>
+<div class="col-md-6 col-sm-4">
 <input type="text" class="form-control" id="value-1">
 </div>
 </div>
 
 <div class="form-group">
-<label class="control-label col-md-2"> ระยะเวลาที่มีชื่ออยู่ในทะเบียนบ้านหลังที่ขาย </label>
-<div class="col-md-6">
+<label class="control-label col-md-2 col-sm-4"> ระยะเวลาที่มีชื่ออยู่ในทะเบียนบ้านหลังที่ขาย </label>
+<div class="col-md-6 col-sm-4">
 <input type="radio" name="year_in_property" value="opt1" checked class="form-check">ตั้งแต่ 1 ปี ขึ้นไป
 <input type="radio" name="year_in_property" value="opt2" class="form-check">น้อยกว่า 1 ปี
 </div>
 </div>
 
 <div class="form-group">
-<label class="control-label col-md-2"> ราคาขาย อสังหาริมทรัพย์ </label>
-<div class="col-md-6">
+<label class="control-label col-md-2 col-sm-4"> ราคาขาย อสังหาริมทรัพย์ </label>
+<div class="col-md-6 col-sm-4">
 <input type="text" class="form-control">
 </div>
 </div>
 
 <div class="form-group">
-<label class="control-label col-md-2"> ราคาประเมินทุนทรัพย์ ในการจดทะเบียนสิทธิและนิติกรรม</label>
-<div class="col-md-6">
+<label class="control-label col-md-2 col-sm-4"> ราคาประเมินทุนทรัพย์ ในการจดทะเบียนสิทธิและนิติกรรม</label>
+<div class="col-md-6 col-sm-4">
 <input type="text" class="form-control" id="value-4">
 </div>
 </div>
-
+</div>
+<div class="row">
 <div class="form-group">
-<label class="control-label col-md-2"> </label>
-<div class="col-md-3">
+<label class="control-label col-md-2 col-sm-4 col-xs-4"> </label>
+<div class="col-md-3 col-sm-2 col-xs-4">
 <div class="text-right"> บุคคลธรรมดา </div>
 </div>
-<div class="col-md-3">
+<div class="col-md-3 col-sm-2 col-xs-4">
 <div class="text-right"> นิติบุคคล </div>
 </div>
 </div>
 
 <div class="form-group">
-<label class="control-label col-md-2"> ค่าโอน 2%</label>
-<div class="col-md-3">
+<label class="control-label col-md-2 col-sm-4 col-xs-4"> ค่าโอน 2%</label>
+<div class="col-md-3 col-sm-2 col-xs-4">
 <div id="outputp1" class="text-right"> </div>
 </div>
-<div class="col-md-3">
+<div class="col-md-3 col-sm-2 col-xs-4">
 <div id="outputb1" class="text-right"> </div>
 </div>
 </div>
 
 <div class="form-group">
-<label class="control-label col-md-2"> ค่าอากร</label>
-<div class="col-md-3">
+<label class="control-label col-md-2 col-sm-4 col-xs-4"> ค่าอากร</label>
+<div class="col-md-3 col-sm-2 col-xs-4">
 <div id="outputp2" class="text-right"> </div>
 </div>
-<div class="col-md-3">
+<div class="col-md-3 col-sm-2 col-xs-4">
 <div id="outputb2" class="text-right"> </div>
 </div>
 
 </div>
 
 <div class="form-group">
-<label class="control-label col-md-2"> ธุรกิจเฉพาะ</label>
-<div class="col-md-3">
+<label class="control-label col-md-2 col-sm-4 col-xs-4"> ธุรกิจเฉพาะ</label>
+<div class="col-md-3 col-sm-2 col-xs-4">
 <div id="outputp3" class="text-right"> </div>
 </div>
-<div class="col-md-3">
+<div class="col-md-3 col-sm-2 col-xs-4">
 <div id="outputb3" class="text-right"> </div>
 </div>
 
 </div>
 
 <div class="form-group">
-<label class="control-label col-md-2"> ภาษี</label>
-<div class="col-md-3">
+<label class="control-label col-md-2 col-sm-4 col-xs-4"> ภาษี</label>
+<div class="col-md-3 col-sm-2 col-xs-4">
 <div id="outputp4" class="text-right"> </div>
 </div>
-<div class="col-md-3">
+<div class="col-md-3 col-sm-2 col-xs-4">
 <div id="outputb4" class="text-right"> </div>
 </div>
 
+</div> <!-- .row -->
 </div>
 
 
 <input type="button" value="คำนวน" id="cal_button">
 </form>
-</div> <!-- .row -->
 </div>
 </body>
 <script>
 $(document).ready(function() {
-  $("#cal_button").click(function() {
-    var possession_year = $("#value-1").val();
-    var asset_type = 
-      $("input[name=asset]:checked", "#form").val() == "opt1" ? 1 
-      : $("input[name=asset]:checked", "#form").val() == "opt2" ? 2
-      : 3;
-    var stay_more_than_1_year = $("input[name=year_in_property]:checked", "#form").val().localeCompare("opt1") == 0 ? true: false;
-    var assessment_value = $("#value-4").val();
-    var property_value = $("#value-3").val() > $("#value-4").val() 
-      ? $("#value-3").val()
-      : $("#value-4").val();
+    $("#cal_button").click(function() {
+        var possession_year = $("#value-1").val();
+        var asset_type = 
+        $("input[name=asset]:checked", "#form").val() == "opt1" ? 1 
+        : $("input[name=asset]:checked", "#form").val() == "opt2" ? 2
+        : 3;
+        var stay_more_than_1_year = $("input[name=year_in_property]:checked", "#form").val().localeCompare("opt1") == 0 ? true: false;
+        var assessment_value = $("#value-4").val();
+        var property_value = $("#value-3").val() > $("#value-4").val() 
+        ? $("#value-3").val()
+        : $("#value-4").val();
 
-    $("#outputp1").text(assessment_value * 0.02);
-    $("#outputb1").text(assessment_value * 0.02);
-    if (asset_type == 1 || possession_year >= 5 || stay_more_than_1_year) {
-      $("#outputp2").text(property_value * 0.005);
-      $("#outputp3").text("-");
-    } else {
-      $("#outputp2").text("-");
-      $("#outputp3").text(property_value * 0.033);
+        $("#outputp1").text(assessment_value * 0.02);
+        $("#outputb1").text(assessment_value * 0.02);
+        if (asset_type == 1 || possession_year >= 5 || stay_more_than_1_year) {
+        $("#outputp2").text(property_value * 0.005);
+        $("#outputp3").text("-");
+        } else {
+        $("#outputp2").text("-");
+        $("#outputp3").text(property_value * 0.033);
+        }
+        $("#outputb2").text("-");
+        $("#outputb3").text(property_value * 0.033);
+
+        var deduct_m165 = (asset_type == 1 || asset_type == 2)
+          ? assessment_value * 0.5
+          : assessment_value * get_deduct_percentile_by_year(possession_year);
+        var taxable_value = assessment_value - deduct_m165;
+        var annual_taxable_value = taxable_value / possession_year;
+        var annual_personal_income_tax = get_personal_income_tax(annual_taxable_value);
+        var tax = annual_personal_income_tax * possession_year;
+        $("#outputp4").text(tax);
+        $("#outputb4").text(property_value * 0.01);
+    });
+
+    function get_deduct_percentile_by_year(year) {
+      if (year >= 8) return 0.5;
+      if (year >= 7) return 0.55;
+      if (year >= 6) return 0.6;
+      if (year >= 5) return 0.65;
+      if (year >= 4) return 0.71;
+      if (year >= 3) return 0.77;
+      if (year >= 2) return 0.84;
+      return 0.92;
     }
-    $("#outputb2").text("-");
-    $("#outputb3").text(property_value * 0.033);
 
-    var deduct_m165 = (asset_type == 1 || asset_type == 2)
-      ? assessment_value * 0.5
-      : assessment_value * get_deduct_percentile_by_year(possession_year);
-    var taxable_value = assessment_value - deduct_m165;
-    var annual_taxable_value = taxable_value / possession_year;
-    var annual_personal_income_tax = get_personal_income_tax(annual_taxable_value);
-    var tax = annual_personal_income_tax * possession_year;
-    $("#outputp4").text(tax);
-    $("#outputb4").text(property_value * 0.01);
-  });
-
-  function get_deduct_percentile_by_year(year) {
-    if (year >= 8) return 0.5;
-    if (year >= 7) return 0.55;
-    if (year >= 6) return 0.6;
-    if (year >= 5) return 0.65;
-    if (year >= 4) return 0.71;
-    if (year >= 3) return 0.77;
-    if (year >= 2) return 0.84;
-    return 0.92;
-  }
-
-  function get_personal_income_tax(income) {
-    if (income > 4000000) return 972500 + ((income - 4000000) * 0.35);
-    if (income > 2000000) return 372500 + ((income - 2000000) * 0.3);
-    if (income > 1000000) return 122500 + ((income - 1000000) * 0.25);
-    if (income >  750000) return  72500 + ((income -  750000) * 0.2);
-    if (income >  500000) return  35000 + ((income -  500000) * 0.15);
-    if (income >  300000) return  15000 + ((income -  300000) * 0.10);
-    if (income >       0) return      0 + ((income -       0) * 0.05);
-    return 0;
-  }
+    function get_personal_income_tax(income) {
+      if (income > 4000000) return 972500 + ((income - 4000000) * 0.35);
+      if (income > 2000000) return 372500 + ((income - 2000000) * 0.3);
+      if (income > 1000000) return 122500 + ((income - 1000000) * 0.25);
+      if (income >  750000) return  72500 + ((income -  750000) * 0.2);
+      if (income >  500000) return  35000 + ((income -  500000) * 0.15);
+      if (income >  300000) return  15000 + ((income -  300000) * 0.10);
+      if (income >       0) return      0 + ((income -       0) * 0.05);
+      return 0;
+    }
 });
 </script>
 </html>
