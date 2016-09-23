@@ -19,16 +19,16 @@
       <form id="form" class="form-horizontal">
         <div class="row">
           <div class="form-group">
-            <label class="control-label col-md-4 col-sm-4"> ประเภทธุรกรรม </label>
-            <div class="col-md-6 col-sm-6">
+            <label class="control-label col-md-3 col-sm-4"> ประเภทธุรกรรม </label>
+            <div class="col-md-3 col-sm-6">
               <input type="radio" name="tax_type" value="opt1" checked class="form-check">บุคคลธรรมดา
               <input type="radio" name="tax_type" value="opt2" class="form-check">นิติบุคคล
             </div>
           </div>
 
           <div class="form-group">
-            <label class="control-label col-md-4 col-sm-4"> การได้มาของทรัพย์ </label>
-            <div class="col-md-6 col-sm-6">
+            <label class="control-label col-md-3 col-sm-4"> การได้มาของทรัพย์ </label>
+            <div class="col-md-3 col-sm-6">
               <input type="radio" name="asset" value="opt1" checked class="form-check">ได้รับมรดก
               <input type="radio" name="asset" value="opt2" class="form-check">รับให้
               <input type="radio" name="asset" value="opt3" class="form-check">ได้มาโดยทางอื่น
@@ -36,74 +36,79 @@
           </div>
 
           <div class="form-group">
-            <label class="control-label col-md-4 col-sm-4"> จำนวนปีที่ถือครอง </label>
-            <div class="col-md-6 col-sm-6">
+            <label class="control-label col-md-3 col-sm-4"> จำนวนปีที่ถือครอง </label>
+            <div class="col-md-3 col-sm-6">
               <input type="text" class="form-control" id="value-1">
             </div>
           </div>
 
           <div class="form-group">
-            <label class="control-label col-md-4 col-sm-4"> ระยะเวลาที่มีชื่ออยู่ในทะเบียนบ้าน </label>
-            <div class="col-md-6 col-sm-6">
+            <label class="control-label col-md-3 col-sm-4"> ระยะเวลาที่มีชื่ออยู่ในทะเบียนบ้าน </label>
+            <div class="col-md-3 col-sm-6">
               <input type="radio" name="year_in_property" value="opt1" checked class="form-check">ตั้งแต่ 1 ปี ขึ้นไป
               <input type="radio" name="year_in_property" value="opt2" class="form-check">น้อยกว่า 1 ปี
             </div>
           </div>
 
           <div class="form-group">
-            <label class="control-label col-md-4 col-sm-4"> ราคาขาย อสังหาริมทรัพย์ </label>
-            <div class="col-md-6 col-sm-6">
+            <label class="control-label col-md-3 col-sm-4"> ราคาขาย อสังหาริมทรัพย์ </label>
+            <div class="col-md-3 col-sm-6">
               <input type="text" class="form-control" id="value-3">
             </div>
           </div>
 
           <div class="form-group">
-            <label class="control-label col-md-4 col-sm-4"> ราคาประเมินทุนทรัพย์ </label>
-            <div class="col-md-6 col-sm-6">
+            <label class="control-label col-md-3 col-sm-4"> ราคาประเมินทุนทรัพย์ </label>
+            <div class="col-md-3 col-sm-6">
               <input type="text" class="form-control" id="value-4">
             </div>
           </div>
         </div> <!-- .row -->
         <div class="row">
+          <div class="align-center col-md-2 center-block">
+            <input type="button" value="คำนวน" id="cal_button" class="btn btn-primary btn-block">
+          </div>
+        </div>
+
+        <div class="row">
           <div class="form-group">
-            <label class="control-label col-md-4 col-sm-4 col-xs-4"> </label>
-            <div class="col-md-3 col-sm-2 col-xs-4">
+            <label class="control-label col-md-3 col-sm-4 col-xs-4"> </label>
+            <div class="col-md-3 col-sm-4 col-xs-6">
               <div class="text-right"> ประมาณการค่าใช้จ่าย </div>
             </div>
           </div>
 
           <div class="form-group">
-            <label class="control-label col-md-4 col-sm-4 col-xs-4"> ค่าโอน 2%</label>
-            <div class="col-md-3 col-sm-2 col-xs-4">
+            <label class="control-label col-md-3 col-sm-4 col-xs-4"> ค่าโอน 2%</label>
+            <div class="col-md-3 col-sm-4 col-xs-6">
               <div id="output1" class="text-right"> </div>
             </div>
           </div>
 
           <div class="form-group">
-            <label class="control-label col-md-4 col-sm-4 col-xs-4"> ค่าอากร</label>
-            <div class="col-md-3 col-sm-2 col-xs-4">
+            <label class="control-label col-md-3 col-sm-4 col-xs-4"> ค่าอากร</label>
+            <div class="col-md-3 col-sm-4 col-xs-6">
               <div id="output2" class="text-right"> </div>
             </div>
 
           </div>
 
           <div class="form-group">
-            <label class="control-label col-md-4 col-sm-4 col-xs-4"> ธุรกิจเฉพาะ</label>
-            <div class="col-md-3 col-sm-2 col-xs-4">
+            <label class="control-label col-md-3 col-sm-4 col-xs-4"> ธุรกิจเฉพาะ</label>
+            <div class="col-md-3 col-sm-4 col-xs-6">
               <div id="output3" class="text-right"> </div>
             </div>
           </div>
 
           <div class="form-group">
-            <label class="control-label col-md-4 col-sm-4 col-xs-4"> ภาษี</label>
-            <div class="col-md-3 col-sm-2 col-xs-4">
+            <label class="control-label col-md-3 col-sm-4 col-xs-4"> ภาษี</label>
+            <div class="col-md-3 col-sm-4 col-xs-6">
               <div id="output4" class="text-right"> </div>
             </div>
           </div> 
         </div><!-- .row -->
 
 
-        <input type="button" value="คำนวน" id="cal_button">
       </form>
     </div>
   </body>
