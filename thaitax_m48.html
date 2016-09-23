@@ -12,12 +12,13 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+    <script src="jquery.number.min.js"></script>
     <title></title>
   </head>
   <body>
     <div class="container">
       <form id="form" class="form-horizontal">
-        <div class="row">
+        <div class="row bg-info">
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-4"> ประเภทธุรกรรม </label>
             <div class="col-md-3 col-sm-6">
@@ -38,7 +39,7 @@
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-4"> จำนวนปีที่ถือครอง </label>
             <div class="col-md-3 col-sm-6">
-              <input type="text" class="form-control" id="value-1">
+              <input type="text" class="form-control number-format-0d" id="value-1" value="0">
             </div>
           </div>
 
@@ -53,24 +54,26 @@
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-4"> ราคาขาย อสังหาริมทรัพย์ </label>
             <div class="col-md-3 col-sm-6">
-              <input type="text" class="form-control" id="value-3">
+              <input type="text" class="form-control number-format-2d" id="value-3" value="0">
             </div>
           </div>
 
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-4"> ราคาประเมินทุนทรัพย์ </label>
             <div class="col-md-3 col-sm-6">
-              <input type="text" class="form-control" id="value-4">
+              <input type="text" class="form-control number-format-2d" id="value-4" value="0">
             </div>
           </div>
         </div> <!-- .row -->
-        <div class="row">
-          <div class="align-center col-md-2 center-block">
-            <input type="button" value="คำนวน" id="cal_button" class="btn btn-primary btn-block">
+        <div class="row bg-info">
+          <div class="col-xs-5 text-center">
+            <button type="button" id="cal_button" class="btn btn-primary">คำนวน</button>
+          </div>
+          <div class="col-xs-5 text-center">
+            <button type="reset" class="btn btn-danger">เริ่มใหม่</button>
           </div>
         </div>
-
-        <div class="row">
+        <div class="row bg-success">
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-4 col-xs-4"> </label>
             <div class="col-md-3 col-sm-4 col-xs-6">
@@ -114,6 +117,8 @@
   </body>
   <script>
 $(document).ready(function() {
+  $(".number-format-2d").number(true, 2);
+  $(".number-format-0d").number(true, 0);
   $("#cal_button").click(function() {
     var tax_type = 
       $("input[name=tax_type]:checked", "#form").val() == "opt1" ? 1
@@ -132,22 +137,25 @@ $(document).ready(function() {
     var property_value =  value_3 > value_4 
       ? value_3
       : value_4;
-
-    $("#output1").text(assessment_value * 0.02);
+    var fee = assessment_value * 0.02;
+    $("#output1").text(fee.toLocaleString('th-TH', {minimumFractionDigits:2}));
     if (tax_type == 1)
     {
       if (asset_type == 1 || possession_year >= 5 || stay_more_than_1_year) {
-        $("#output2").text(property_value * 0.005);
+        var fee = property_value * 0.005;
+        $("#output2").text(fee.toLocaleString('th-TH', {minimumFractionDigits:2}));
         $("#output3").text("-");
       } else {
+        var fee = property_value * 0.033;
         $("#output2").text("-");
-        $("#output3").text(property_value * 0.033);
+        $("#output3").text(fee.toLocaleString('th-TH', {minimumFractionDigits:2}));
       }
     }
     else
     {
+      var fee = property_value * 0.033;
       $("#output2").text("-");
-      $("#output3").text(property_value * 0.033);
+      $("#output3").text(fee.toLocaleString('th-TH', {minimumFractionDigits:2}));
     }
     var deduct_m165 = (asset_type == 1 || asset_type == 2)
       ? assessment_value * 0.5
@@ -155,11 +163,11 @@ $(document).ready(function() {
     var taxable_value = assessment_value - deduct_m165;
     var annual_taxable_value = taxable_value / possession_year;
     var annual_personal_income_tax = get_personal_income_tax(annual_taxable_value);
-    var tax = annual_personal_income_tax * possession_year;
-    $("#output4").text(
-        tax_type == 1 
-        ? tax
-        : property_value * 0.01);
+    var tax = tax_type == 1 
+      ? annual_personal_income_tax * possession_year
+      : property_value * 0.01;
+    $("#output4").text(tax.toLocaleString('th-TH'
+          , {minimumFractionDigits:2}));
   });
 
   function get_deduct_percentile_by_year(year) {
