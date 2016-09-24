@@ -101,6 +101,9 @@
   </body>
   <script>
 $(document).ready(function() {
+  $("input[type='text']").on("focus", function () {
+   $(this).select();
+  });
   $(".number-format-2d").number(true, 2);
   $(".number-format-0d").number(true, 0);
   $("#cal_button").click(function() {
