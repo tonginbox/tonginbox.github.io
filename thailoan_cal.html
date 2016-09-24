@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="jquery.number.min.js"></script>
+    <title>ESTATE CORNER คำนวนเงินกู้ และค่างวด</title>
+  </head>
+  <body>
+    <div class="container">
+      <form id="form" class="form-horizontal">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <img src="corner.png">
+            <strong>คำนวนเงินกู้ และค่างวด </strong>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-4"> วงเงินกู้ </label>
+                <div class="col-md-3 col-sm-6">
+                  <input type="text" class="form-control number-format-2d text-right" id="value-1" value="0">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-4"> อัตราดอกเบี้ย % </label>
+                <div class="col-md-3 col-sm-6">
+                  <input type="text" class="form-control number-format-2d text-right" id="value-2" value="0">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-4"> ระยะเวลากู้ ปี </label>
+                <div class="col-md-3 col-sm-6">
+                  <input type="text" class="form-control number-format-0d text-right" id="value-3" value="0">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-4"> ภาระหนี้อื่น ๆ ต่อเดือน (ถ้ามี) </label>
+                <div class="col-md-3 col-sm-6">
+                  <input type="text" class="form-control number-format-2d text-right" id="value-4" value="0">
+                </div>
+              </div>
+           </div> <!-- .row -->
+          </div> <!-- penel-body -->
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-xs-5 text-center">
+                <button type="button" id="cal_button" class="btn btn-primary">คำนวน</button>
+              </div>
+              <div class="col-xs-5 text-center">
+                <button type="reset" class="btn btn-danger">เริ่มใหม่</button>
+              </div>
+            </div>
+          </div>
+        </div> <!-- panel -->
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-4 col-xs-4"> </label>
+              <div class="col-md-3 col-sm-4 col-xs-6">
+                <div class="text-right"> ประมาณการค่างวด และรายได้ขั้นต่ำ </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-4 col-xs-4"> ค่างวดเดือนละ </label>
+                <div class="col-md-3 col-sm-4 col-xs-6">
+                  <div id="output1" class="text-right"> </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-4 col-xs-4"> ประมาณการรายได้ขั้นต่ำต่อเดือน</label>
+                <div class="col-md-3 col-sm-4 col-xs-6">
+                  <div id="output2" class="text-right"> </div>
+                </div>
+
+              </div>
+
+           </div><!-- .row -->
+          </div>
+        </div> <!-- panel -->
+
+      </form>
+    </div>
+  </body>
+  <script>
+$(document).ready(function() {
+  $(".number-format-2d").number(true, 2);
+  $(".number-format-0d").number(true, 0);
+  $("#cal_button").click(function() {
+    var PVAn = parseFloat($("#value-1").val()) || 0;
+    var i = parseFloat($("#value-2").val()) / 100 / 12 || 0;
+    var n = parseFloat($("#value-3").val()) * 12 || 0;
+    var debt = parseFloat($("#value-4").val()) || 0;
+    var PMT = 1/Math.pow(1+i,n);
+    PMT = (1 - PMT)/i;
+    PMT = PVAn / PMT;
+    $("#output1").text(PMT.toLocaleString('th-TH'
+          , {minimumFractionDigits:2}));
+    var est_income = (PMT * 2) + (debt * 2);
+    $("#output2").text(est_income.toLocaleString('th-TH'
+          , {minimumFractionDigits:2}));
+  });
+
+});
+  </script>
+</html>
+
