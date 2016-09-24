@@ -13,7 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <script src="jquery.number.min.js"></script>
-    <title></title>
+    <title>ESTATE CORNER คำนวนภาษีการขายอสังหาริมทรัพย์</title>
   </head>
   <body>
     <div class="container">
@@ -21,7 +21,7 @@
         <div class="panel panel-primary">
           <div class="panel-heading">
             <img src="corner.png">
-            <strong>อันดับ 1 ซื้อ ขาย บ้านและที่ดิน</strong>
+            <strong>คำนวนภาษีการขายอสังหาริมทรัพย์</strong>
           </div>
           <div class="panel-body">
             <div class="row">
@@ -45,7 +45,7 @@
               <div class="form-group">
                 <label class="control-label col-md-3 col-sm-4"> จำนวนปีที่ถือครอง </label>
                 <div class="col-md-3 col-sm-6">
-                  <input type="text" class="form-control number-format-0d" id="value-1" value="0">
+                  <input type="text" class="form-control number-format-0d text-right" id="value-1" value="0">
                 </div>
               </div>
 
@@ -60,14 +60,14 @@
               <div class="form-group">
                 <label class="control-label col-md-3 col-sm-4"> ราคาขาย อสังหาริมทรัพย์ </label>
                 <div class="col-md-3 col-sm-6">
-                  <input type="text" class="form-control number-format-2d" id="value-3" value="0">
+                  <input type="text" class="form-control number-format-2d text-right" id="value-3" value="0">
                 </div>
               </div>
 
               <div class="form-group">
                 <label class="control-label col-md-3 col-sm-4"> ราคาประเมินทุนทรัพย์ </label>
                 <div class="col-md-3 col-sm-6">
-                  <input type="text" class="form-control number-format-2d" id="value-4" value="0">
+                  <input type="text" class="form-control number-format-2d text-right" id="value-4" value="0">
                 </div>
               </div>
             </div> <!-- .row -->
@@ -137,7 +137,7 @@ $(document).ready(function() {
     var tax_type = 
       $("input[name=tax_type]:checked", "#form").val() == "opt1" ? 1
       : 2;
-    var possession_year = $("#value-1").val();
+    var possession_year = $("#value-1").val() || 0;
     var asset_type = 
       $("input[name=asset]:checked", "#form").val() == "opt1" ? 1 
       : $("input[name=asset]:checked", "#form").val() == "opt2" ? 2
@@ -145,9 +145,9 @@ $(document).ready(function() {
     var stay_more_than_1_year = 
       $("input[name=year_in_property]:checked", "#form").val()
       .localeCompare("opt1") == 0 ? true: false;
-    var assessment_value = $("#value-4").val();
-    var value_3 = parseFloat($("#value-3").val());
-    var value_4 = parseFloat($("#value-4").val());
+    var assessment_value = parseFloat($("#value-4").val()) || 0;
+    var value_3 = parseFloat($("#value-3").val()) || 0;
+    var value_4 = parseFloat($("#value-4").val()) || 0;
     var property_value =  value_3 > value_4 
       ? value_3
       : value_4;
