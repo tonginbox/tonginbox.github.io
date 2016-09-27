@@ -181,26 +181,26 @@ $(document).ready(function() {
 			? value_3
 			: value_4;
 		var fee = assessment_value * 0.02;
-		$("#output1").text(fee.toLocaleString('th-TH', {minimumFractionDigits:2}));
+		$("#output1").text(Number(fee.toFixed(0)).toLocaleString());
 		if (tax_type == 1)
 		{
 			if (asset_type == 1 
         || possession_year_exact >= 5 
         || stay_more_than_1_year) {
 				var fee = property_value * 0.005;
-				$("#output2").text(fee.toLocaleString('th-TH', {minimumFractionDigits:2}));
+				$("#output2").text(Number(fee.toFixed(0)).toLocaleString());
 				$("#output3").text("-");
 			} else {
 				var fee = property_value * 0.033;
 				$("#output2").text("-");
-				$("#output3").text(fee.toLocaleString('th-TH', {minimumFractionDigits:2}));
+				$("#output3").text(Number(fee.toFixed(0)).toLocaleString());
 			}
 		}
 		else
 		{
 			var fee = property_value * 0.033;
 			$("#output2").text("-");
-			$("#output3").text(fee.toLocaleString('th-TH', {minimumFractionDigits:2}));
+      $("#output3").text(Number(fee.toFixed(0)).toLocaleString());
 		}
 		var possession_year = calculateCalendarAge(
 				fromDate.getFullYear()
@@ -214,8 +214,7 @@ $(document).ready(function() {
 		var tax = tax_type == 1 
 			? annual_personal_income_tax * possession_year
 			: property_value * 0.01;
-		$("#output4").text(tax.toLocaleString('th-TH'
-					, {minimumFractionDigits:2}));
+		$("#output4").text(Number(tax.toFixed(0)).toLocaleString());
 	});
 
 	function get_deduct_percentile_by_year(year) {

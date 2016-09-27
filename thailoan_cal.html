@@ -114,11 +114,9 @@ $(document).ready(function() {
     var PMT = 1/Math.pow(1+i,n);
     PMT = (1 - PMT)/i;
     PMT = PVAn / PMT;
-    $("#output1").text(PMT.toLocaleString('th-TH'
-          , {minimumFractionDigits:2}));
+    $("#output1").text(Number(PMT.toFixed(0)).toLocaleString());
     var est_income = (PMT * 2) + (debt * 2);
-    $("#output2").text(est_income.toLocaleString('th-TH'
-          , {minimumFractionDigits:2}));
+    $("#output2").text(Number(est_income.toFixed(0)).toLocaleString());
   });
 
 });
