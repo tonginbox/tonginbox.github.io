@@ -59,9 +59,16 @@
 							</div>
 
 							<div class="form-group">
-								<label class="control-label col-md-3 col-sm-4"> จำนวนปีที่ถือครอง </label>
+								<label class="control-label col-md-3 col-sm-4"> ปีภาษีธุรกิจเฉพาะ </label>
 								<div class="col-md-3 col-sm-4">
 									<input type="text" class="form-control number-format-0d text-right" id="value-1" value="0" disabled>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label col-md-3 col-sm-4"> จำนวนปีที่ถือครอง </label>
+								<div class="col-md-3 col-sm-4">
+									<input type="text" class="form-control number-format-0d text-right" id="value-5" value="0" disabled>
 								</div>
 							</div>
 
@@ -205,6 +212,7 @@ $(document).ready(function() {
 		var possession_year = calculateCalendarAge(
 				fromDate.getFullYear()
 				, toDate.getFullYear());
+    $("#value-5").val(possession_year);
 		var deduct_m165 = (asset_type == 1 || asset_type == 2)
 			? assessment_value * 0.5
 			: assessment_value * get_deduct_percentile_by_year(possession_year);
