@@ -147,18 +147,16 @@
 	</body>
 	<script>
 $(document).ready(function() {
-	$("#value-d-1").datepicker();
-	$("#value-d-2").datepicker();
+  $("#value-d-1").datepicker({ dateFormat: 'dd-mm-yy'});
+  $("#value-d-2").datepicker({ dateFormat: 'dd-mm-yy'});
 	$("input[type='text']").on("focus", function () {
 		$(this).select();
 	});
 	$(".number-format-2d").number(true, 2);
 	$(".number-format-0d").number(true, 0);
 	$("#cal_button").click(function() {
-		var fromDate = $("#value-d-1").val();
-		fromDate = new Date(fromDate);
-		var toDate = $("#value-d-2").val();
-		toDate = new Date(toDate);
+		var fromDate = $("#value-d-1").datepicker('getDate');
+		var toDate = $("#value-d-2").datepicker('getDate');
 
 		var tax_type = 
 			$("input[name=tax_type]:checked", "#form").val() == "opt1" ? 1
