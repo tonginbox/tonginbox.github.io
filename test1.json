@@ -1,6 +1,6 @@
 {
-  columns: ["Name", "Value"],
-  rows: [{
+  "columns": ["Name", "Value"],
+  "rows": [{
     "Name": "Item1",
     "Value": 50
   }, {
