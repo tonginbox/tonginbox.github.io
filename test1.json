@@ -1,13 +1,13 @@
 {
-  columns: ['Name', 'Value'],
+  columns: ["Name", "Value"],
   rows: [{
-    'Name': 'Item1',
-    'Value': 50
+    "Name": "Item1",
+    "Value": 50
   }, {
-    'Name': 'Item2',
-    'Value': 98
+    "Name": "Item2",
+    "Value": 98
   }, {
-    'Name': 'Item3',
-    'Value': 35
+    "Name": "Item3",
+    "Value": 35
   }]
 };
