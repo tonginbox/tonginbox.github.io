@@ -1,4 +1,4 @@
-var tableData = {
+{
   columns: ['Name', 'Value'],
   rows: [{
     'Name': 'Item1',
